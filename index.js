@@ -19,7 +19,14 @@ await connectRedis(); // await use karein connection ka wait karne ke liye
 
 // Middleware
 app.use(express.json()); // JSON request body parse karne ke liye
-app.use(cors()); // CORS enable karein (frontend se communication ke liye)
+ // CORS enable karein (frontend se communication ke liye)
+ app.use(cors({
+    origin: 'https://url-shorten-blush-eta.vercel.app', // Yahan apne Vercel frontend ka URL daalein
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    credentials: true, // Cookies, authorization headers allow karein agar future mein use karein
+    optionsSuccessStatus: 204
+}));
+
 
 // API Routes
 // /api prefix ke neeche URL shortening aur listing routes mount karein
