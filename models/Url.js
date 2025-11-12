@@ -4,7 +4,7 @@ const urlSchema = new mongoose.Schema({
     longUrl: {
         type: String,
         required: true,
-        trim: true // Extra spaces remove karega
+        trim: true
     },
     shortUrl: {
         type: String,

@@ -1,7 +1,7 @@
-import { createClient } from 'redis'; // Redis client banane ke liye
+import { createClient } from 'redis';
 import dotenv from 'dotenv';
 
-dotenv.config(); // .env file load karein
+dotenv.config();
 
 const redisClient = createClient({
     password: process.env.REDIS_PASSWORD,
@@ -15,15 +15,14 @@ redisClient.on('connect', () => console.log('Redis Connected Successfully!'));
 redisClient.on('error', err => console.error('Redis Error:', err.message));
 
 const connectRedis = async () => {
-    // Agar Redis client pehle se connected nahi hai, toh connect karein
     if (!redisClient.isOpen) {
         try {
             await redisClient.connect();
         } catch (err) {
             console.error('Failed to connect to Redis:', err.message);
-            process.exit(1); // Error hone par process exit kar dein
+            process.exit(1);
         }
     }
 };
 
-export { redisClient, connectRedis }; // redisClient instance aur connectRedis function ko export karein
+export { redisClient, connectRedis };

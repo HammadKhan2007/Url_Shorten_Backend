@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
-import dotenv from 'dotenv'; // .env variables load karne ke liye
+import dotenv from 'dotenv';
 
-dotenv.config(); // .env file load karein
+dotenv.config();
 
 const connectDB = async () => {
     try {
@@ -9,8 +9,8 @@ const connectDB = async () => {
         console.log('MongoDB Connected Successfully!');
     } catch (err) {
         console.error('MongoDB connection error:', err.message);
-        process.exit(1); // Error hone par process exit kar dein
+        process.exit(1);
     }
 };
 
-export default connectDB; // connectDB function ko export karein
+export default connectDB; 
