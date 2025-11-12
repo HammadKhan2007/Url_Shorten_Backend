@@ -5,6 +5,7 @@ import qrcode from 'qrcode';
 import { URL } from 'url';
 
 export const shortenUrl = async (req, res) => {
+    console.log(req.body);
     const { longUrl, customAlias } = req.body;
     const baseUrl = process.env.BASE_URL;
 
